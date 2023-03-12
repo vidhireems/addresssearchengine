@@ -131,7 +131,7 @@ function App() {
       if (formData !== null && formData.Name !== null) {
         try {
           const response = await fetch(
-            "http://127.0.0.1:5000/api/searchCountriesByClient",
+            "/api/searchCountriesByClient",
             {
               method: "POST",
               headers: {
@@ -153,7 +153,7 @@ function App() {
       else {
         try {
           const response = await fetch(
-            "http://127.0.0.1:5000/api/searchCountry",
+            "/api/searchCountry",
             {
               method: "POST",
               headers: {
@@ -177,7 +177,7 @@ function App() {
 
       try {
         const response = await fetch(
-          "http://127.0.0.1:5000//api/searchCountries",
+          "/api/searchCountries",
           {
             method: "POST",
             headers: {
@@ -198,7 +198,7 @@ function App() {
     else if (formData !== null && formData.Name !== null) {
       try {
         const response = await fetch(
-          "http://127.0.0.1:5000/api/searchCountriesByClient",
+          "/api/searchCountriesByClient",
           {
             method: "POST",
             headers: {
