@@ -83,7 +83,7 @@ def spec():
 @app.route('/<path:path>')
 def serve(path):
     if path == "":
-        path = "index.html"
+        path = "public/index.html"
     if os.path.exists("build/" + path):
         return send_from_directory('build', path)
     else:
