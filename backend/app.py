@@ -1,8 +1,9 @@
-from flask import Flask, request, Response,jsonify,render_template
+from flask import Flask, request, Response,jsonify,render_template, send_from_directory
 from pymongo import MongoClient
 from flask_cors import CORS
 from flask_swagger_ui import get_swaggerui_blueprint
 from model import AddressModel
+import os
 
 import json
 app = Flask(__name__)
@@ -77,13 +78,24 @@ def spec():
     swag['info']['title'] = "My API"
     return jsonify(swag)
 
-@app.route("/")
-def index():
-    # Provide the mongodb atlas url to connect python to mongodb using pymongo
-    return render_template('index.html')
+# Serve the React app as static files
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def serve(path):
+    if path == "":
+        path = "index.html"
+    if os.path.exists("build/" + path):
+        return send_from_directory('build', path)
+    else:
+        return send_from_directory('build', 'index.html')
 
-    # Create the database for our example (we will use the same database throughout the tutorial
-    #return client['user_shopping_list']
+# @app.route("/")
+# def index():
+#     # Provide the mongodb atlas url to connect python to mongodb using pymongo
+#     return render_template('index.html')
+
+#     # Create the database for our example (we will use the same database throughout the tutorial
+#     #return client['user_shopping_list']
 
 #REST API to get the addresses based on country
 @app.route('/api/searchCountry', methods=['POST'])
