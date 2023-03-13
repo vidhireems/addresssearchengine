@@ -20,7 +20,7 @@ Pre-requisites:
  Frontend:
  Install npm based on operationg system
  pip install react
- pip install react-dom
+ pip install react-dom 
  
  How to run:
  
