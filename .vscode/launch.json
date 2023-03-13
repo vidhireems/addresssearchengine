@@ -4,7 +4,7 @@
     "request": "launch",
     "module": "flask",
     "env": {
-        "FLASK_APP": "startup:app",
+        "FLASK_APP": "./../backend/app.py",
         "FLASK_DEBUG": "1"
     },
     "args": [
