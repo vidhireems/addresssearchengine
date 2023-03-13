@@ -2,6 +2,9 @@ from flask import Flask, request, Response,jsonify,render_template, send_from_di
 from pymongo import MongoClient
 from flask_cors import CORS
 from flask_swagger_ui import get_swaggerui_blueprint
+import sys
+import os
+sys.path.append(os.path.join(".", "model"))
 from model.model import AddressModel
 import os
 
