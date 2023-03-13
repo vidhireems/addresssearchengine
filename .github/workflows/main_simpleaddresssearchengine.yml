@@ -60,4 +60,4 @@ jobs:
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_FF70A3CC862D4CAF87980343D6B36924 }}
       - name: 'Activate virtual environment'
-        run: venv\Scripts\activate.bat
+        run: source venv/Scripts/activate
