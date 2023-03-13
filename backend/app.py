@@ -79,23 +79,23 @@ def spec():
     return jsonify(swag)
 
 # # Serve the React app as static files
-# @app.route('/', defaults={'path': ''})
-# @app.route('/<path:path>')
-# def serve(path):
-#     if path == "":
-#         path = "public/index.html"
-#     if os.path.exists("build/" + path):
-#         return send_from_directory('build', path)
-#     else:
-#         return send_from_directory('build', 'index.html')
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def serve(path):
+    if path == "":
+        path = "index.html"
+    if os.path.exists("static" + path):
+        return send_from_directory('static', path)
+    else:
+        return send_from_directory('static', 'index.html')
 
-@app.route("/")
-def index():
-    # Provide the mongodb atlas url to connect python to mongodb using pymongo
-    return render_template('index.html')
+# @app.route("/")
+# def index():
+#     # Provide the mongodb atlas url to connect python to mongodb using pymongo
+#     return render_template('index.html')
 
-    # Create the database for our example (we will use the same database throughout the tutorial
-    #return client['user_shopping_list']
+#     # Create the database for our example (we will use the same database throughout the tutorial
+#     #return client['user_shopping_list']
 
 #REST API to get the addresses based on country
 @app.route('/api/searchCountry', methods=['POST'])
